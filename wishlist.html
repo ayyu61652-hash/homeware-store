@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | HomeWare Store</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-pink-50">
+
+<!-- HEADER -->
+<div class="max-w-6xl mx-auto flex justify-between items-center mt-8 px-5">
+
+    <h1 class="text-4xl font-bold text-pink-500">
+        ❤️ Wishlist Saya
+    </h1>
+
+    <div class="flex items-center gap-5">
+
+        <a href="index.html" class="text-3xl text-pink-500 hover:text-pink-700">
+            <i class="fa-solid fa-house"></i>
+        </a>
+
+        <a href="cart.html" class="relative text-3xl text-pink-500 hover:text-pink-700">
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cart-count"
+                  class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                0
+            </span>
+        </a>
+
+    </div>
+</div>
+
+<!-- WISHLIST -->
+<div id="wishlist-items"
+     class="max-w-6xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-5">
+</div>
+
+<div class="text-center mt-10 mb-10">
+    <a href="index.html"
+       class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full">
+        ← Kembali Belanja
+    </a>
+</div>
+
+<!-- PRODUCTS (SUDAH DIPERBAIKI) -->
+<script>
+window.products = [
+
+    {
+        id: 1,
+        name: "Tumbler Stainless",
+        price: 89000,
+        image: "images/tumbler.jpg"
+    },
+
+    {
+        id: 2,
+        name: "Gelas Kaca Premium",
+        price: 45000,
+        image: "images/gelas.jpg"
+    },
+
+    {
+        id: 3,
+        name: "Piring Keramik",
+        price: 39000,
+        image: "images/piring.jpg"
+    },
+
+    {
+        id: 4,
+        name: "Tempat Makan",
+        price: 65000,
+        image: "images/tempat makan.jpg"
+    },
+
+    {
+        id: 5,
+        name: "Sendok & Garpu Set",
+        price: 55000,
+        image: "images/sendok dan garpu set.jpg"
+    },
+
+    {
+        id: 6,
+        name: "Mangkok Keramik",
+        price: 42000,
+        image: "images/mangkuk kramik.jpg"
+    },
+
+    {
+        id: 7,
+        name: "Sumpit Kayu",
+        price: 20000,
+        image: "images/sumpit kayu.jpg"
+    },
+
+    {
+        id: 8,
+        name: "Panci Stainless",
+        price: 189000,
+        image: "images/panci stainless.jpg"
+    },
+
+    {
+        id: 9,
+        name: "Tempat Saus",
+        price: 25000,
+        image: "images/tempat saus.jpg"
+    },
+
+    {
+        id: 10,
+        name: "Set Peralatan Dapur",
+        price: 299000,
+        image: "images/set peralatan dapur.jpg"
+    }
+
+];
+</script>
+
+<!-- SCRIPT WISHLIST -->
+<script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let container = document.getElementById("wishlist-items");
+
+    if (wishlist.length === 0) {
+        container.innerHTML = `
+            <div class="col-span-4 text-center">
+                <h2 class="text-2xl text-gray-500">
+                    ❤️ Wishlist masih kosong
+                </h2>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = "";
+
+    wishlist.forEach(id => {
+
+        let product = window.products.find(item => item.id === Number(id));
+
+        if (!product) return;
+
+        container.innerHTML += `
+        <div class="bg-white rounded-2xl shadow-lg p-4">
+
+            <img src="${product.image}"
+                 class="w-full h-60 object-cover rounded-xl">
+
+            <h2 class="font-bold text-lg mt-3">
+                ${product.name}
+            </h2>
+
+            <p class="text-pink-500 font-bold mb-4">
+                Rp ${product.price.toLocaleString('id-ID')}
+            </p>
+
+            <button onclick="addToCart(${product.id})"
+                    class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg mb-2">
+                🛒 Tambah ke Keranjang
+            </button>
+
+            <button onclick="removeWishlist(${product.id})"
+                    class="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg">
+                🗑️ Hapus Wishlist
+            </button>
+
+        </div>
+        `;
+    });
+});
+
+function removeWishlist(id) {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.getElementById("cart-count").innerText = cart.length;
+    wishlist = wishlist.filter(item => item != id);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    location.reload();
+}
+function addToCart(id) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let product = window.products.find(item => item.id === Number(id));
+
+    let existing = cart.find(item => item.id === Number(id));
+
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            qty: 1
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(product.name + " berhasil ditambahkan ke keranjang 🛒");
+}
+</script>
+
+</body>
+</html>

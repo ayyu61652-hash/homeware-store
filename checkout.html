@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | HomeWare Store</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-pink-50">
+
+<!-- Header -->
+<header class="bg-pink-400 shadow-lg">
+
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-6">
+
+        <h1 class="text-3xl font-bold text-white">
+            💳 Checkout
+        </h1>
+
+        <a href="cart.html"
+        class="bg-white text-pink-500 px-5 py-2 rounded-full font-semibold">
+            ← Kembali
+        </a>
+
+    </div>
+
+</header>
+
+<!-- Form Checkout -->
+<div class="max-w-3xl mx-auto mt-10 mb-10">
+
+    <div class="bg-white rounded-3xl shadow-xl p-8">
+
+        <h2 class="text-3xl font-bold text-center text-pink-500 mb-8">
+            Data Pembeli
+        </h2>
+
+        <!-- Nama -->
+        <div class="mb-5">
+
+            <label class="font-semibold">
+                Nama Lengkap
+            </label>
+
+            <input
+            type="text"
+            placeholder="Masukkan nama lengkap"
+            class="w-full mt-2 border rounded-xl p-3">
+
+        </div>
+
+        <!-- Nomor HP -->
+        <div class="mb-5">
+
+            <label class="font-semibold">
+                Nomor HP
+            </label>
+
+            <input
+            type="tel"
+            placeholder="08xxxxxxxxxx"
+            class="w-full mt-2 border rounded-xl p-3">
+
+        </div>
+
+        <!-- Alamat -->
+        <div class="mb-5">
+
+            <label class="font-semibold">
+                Alamat Lengkap
+            </label>
+
+            <textarea
+            rows="4"
+            placeholder="Masukkan alamat lengkap"
+            class="w-full mt-2 border rounded-xl p-3"></textarea>
+
+        </div>
+
+        <!-- Metode Pembayaran -->
+
+        <h3 class="text-xl font-bold mt-8 mb-4 text-pink-500">
+            Pilih Metode Pembayaran
+        </h3>
+
+        <div class="space-y-3">
+
+            <label class="flex items-center gap-3">
+                <input type="radio" name="bayar">
+                🏦 Transfer Bank
+            </label>
+
+            <label class="flex items-center gap-3">
+                <input type="radio" name="bayar">
+                📱 QRIS
+            </label>
+
+            <label class="flex items-center gap-3">
+                <input type="radio" name="bayar">
+                💙 DANA
+            </label>
+
+            <label class="flex items-center gap-3">
+                <input type="radio" name="bayar">
+                🚚 COD (Bayar di Tempat)
+            </label>
+
+        </div>
+
+        <!-- Ringkasan Belanja -->
+
+        <div class="mt-10 bg-pink-100 rounded-2xl p-5">
+
+            <h3 class="font-bold text-xl mb-4">
+                Ringkasan Belanja
+            </h3>
+
+            <div class="flex justify-between mb-2">
+                <span>Total Produk</span>
+                <span id="total-produk">0</span>
+            </div>
+
+            <div class="flex justify-between mb-2">
+                <span>Subtotal</span>
+                <span id="subtotal">Rp0</span>
+            </div>
+
+            <div class="flex justify-between mb-2">
+                <span>Ongkir</span>
+                <span id="ongkir">Rp10.000</span>
+            </div>
+
+            <div class="flex justify-between font-bold text-xl text-pink-500 mt-4">
+
+                <span>Total Bayar</span>
+
+                <span id="total-bayar">
+                    Rp0
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Tombol -->
+
+        <button onclick="bayar()"
+        class="w-full mt-8 bg-pink-400 hover:bg-pink-500 text-white py-4 rounded-full text-xl font-bold">
+
+            Bayar Sekarang
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const ongkir = 10000;
+
+// ===============================
+// LOAD DATA CHECKOUT
+// ===============================
+
+function loadCheckout(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let totalProduk = 0;
+    let subtotal = 0;
+
+    cart.forEach(item => {
+
+        totalProduk += item.qty;
+
+        subtotal += item.price * item.qty;
+
+    });
+
+    document.getElementById("total-produk").innerHTML = totalProduk;
+
+    document.getElementById("subtotal").innerHTML =
+    "Rp " + subtotal.toLocaleString("id-ID");
+
+    document.getElementById("ongkir").innerHTML =
+    "Rp " + ongkir.toLocaleString("id-ID");
+
+    document.getElementById("total-bayar").innerHTML =
+    "Rp " + (subtotal + ongkir).toLocaleString("id-ID");
+
+}
+
+// ===============================
+// BAYAR
+// ===============================
+
+function bayar(){
+
+    alert("Pembayaran Berhasil!");
+
+    // Hapus isi keranjang setelah checkout
+    localStorage.removeItem("cart");
+
+    window.location.href = "success.html";
+
+}
+
+loadCheckout();
+
+</script>
+<script>
+
+function bayar(){
+
+    // Membuat nomor pesanan acak
+    const nomorPesanan = "HW" + Date.now();
+
+    // Simpan nomor pesanan
+    localStorage.setItem("orderNumber", nomorPesanan);
+
+    // Pindah ke halaman sukses
+    window.location.href = "success.html";
+
+}
+
+</script>
+</body>
+</html>

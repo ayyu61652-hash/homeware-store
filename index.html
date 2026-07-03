@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWare Store - Perabotan Rumah Tangga</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-pink-100">
+
+<header class="bg-pink-600 text-white shadow-lg">
+
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+        <!-- LOGO -->
+        <div>
+            <h1 class="text-2xl font-bold">
+                🏠 HomeWare Store
+            </h1>
+            
+
+            <p class="text-sm italic text-pink-200 opacity-80">
+                Perabotan rumah tangga estetik & murah
+            </p>
+        </div>
+
+        <!-- ICON -->
+        <div class="flex items-center gap-5 text-white text-xl">
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank"
+               class="hover:text-pink-200 transition">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank"
+               class="hover:text-black transition">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+            <!-- Keranjang -->
+            <a href="cart.html"
+               class="relative hover:text-yellow-200 transition">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cart-count"
+class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full">
+    0
+</span>
+            </a>
+            <a href="wishlist.html"
+class="text-white text-2xl hover:text-red-300 transition">
+
+    ❤️
+
+</a>
+            <input
+    type="text"
+    id="search"
+    placeholder="🔍 Cari produk..."
+    onkeyup="searchProduct()"
+    class="w-72 p-3 rounded-full border border-pink-300 shadow text-black placeholder:text-gray-500 bg-white focus:outline-none focus:border-pink-500">
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="max-w-7xl mx-auto p-8">
+
+    <h2 class="text-4xl font-bold text-center mb-3 text-pink-700 tracking-wide">
+    ✨ Perabotan Rumah Tangga ✨
+</h2>
+
+<p class="text-center text-pink-500 italic text-lg max-w-2xl mx-auto">
+    Temukan berbagai perlengkapan dapur berkualitas dengan harga terbaik yang membuat rumahmu lebih nyaman dan estetik.
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <!-- Produk 1 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+   <img src="images/tumbler.jpg"
+   class="w-full aspect-[3/4] object-cover rounded-xl">
+
+   <h3 class="product-name font-semibold mt-3">
+      Tumbler Stainless
+   </h3>
+
+<div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+
+            <p class="text-hitam-600 font-bold text-xl">Rp89.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(1)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(1)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+       <!-- Produk 2 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/gelas.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Gelas Kaca Premium
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp45.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(2)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(2)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 3 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/piring.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Piring Keramik
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp39.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(3)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(3)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 4 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/tempat makan.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Tempat Makan
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp65.000</p>
+            
+<div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(4)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(4)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 5 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/sendok dan garpu set.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Sendok & Garpu Set
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp55.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(5)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(5)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 6 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/mangkuk kramik.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Mangkok Keramik
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp42.000</p>
+           <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(6)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(6)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 7 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/sumpit kayu.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Sumpit Kayu
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp20.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(7)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(7)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 8 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <div class="relative">
+
+        <!-- Badge Diskon -->
+        <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+            -24%
+        </span>
+
+        <!-- Gambar -->
+        <img src="images/panci stainless.jpg"
+             class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    </div>
+
+    <!-- Nama Produk -->
+    <h3 class="product-name font-semibold mt-3">
+        Panci Stainless
+    </h3>
+
+    <!-- Rating -->
+    <div class="flex items-center mt-2 mb-2">
+
+        <i class="fa-solid fa-star text-yellow-400"></i>
+        <i class="fa-solid fa-star text-yellow-400"></i>
+        <i class="fa-solid fa-star text-yellow-400"></i>
+        <i class="fa-solid fa-star text-yellow-400"></i>
+        <i class="fa-solid fa-star text-yellow-400"></i>
+
+        <span class="text-pink-500 text-sm ml-2">
+            (5.0)
+        </span>
+
+    </div>
+
+    <!-- Harga Lama -->
+    <p class="text-gray-400 line-through text-sm">
+        Rp250.000
+    </p>
+
+    <!-- Harga Diskon -->
+    <p class="text-pink-500 font-bold text-xl">
+        Rp189.000
+    </p>
+
+    <!-- Hemat -->
+    <p class="text-green-600 text-sm font-semibold">
+        Hemat Rp61.000
+    </p>
+
+    <!-- Tombol -->
+    <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(8)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(8)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+</div>
+
+       <!-- Produk 9 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/tempat saus.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Tempat Saus
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp25.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(9)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(9)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+        <!-- Produk 10 -->
+<div class="product bg-white rounded-2xl shadow hover:shadow-xl transition p-4">
+
+    <img src="images/set peralatan dapur.jpg"
+    class="w-full aspect-[3/4] object-cover rounded-xl">
+
+    <h3 class="product-name font-semibold mt-3">
+        Set Peralatan Dapur
+    </h3>
+
+    <div class="flex items-center mt-2 mb-2">
+    <div class="text-yellow-400">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    <span class="text-pink-500 text-sm ml-2">(5.0)</span>
+</div>
+            <p class="text-hitam-600 font-bold text-xl">Rp299.000</p>
+            <div class="flex gap-2 mt-4">
+
+    <button onclick="toggleWishlist(10)"
+        class="bg-pink-100 hover:bg-pink-200 px-4 rounded-lg text-red-500 text-xl">
+        ❤️
+    </button>
+
+    <button onclick="addToCart(10)"
+        class="flex-1 bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">
+        Tambah ke Keranjang
+    </button>
+
+</div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="bg-pink-600 text-white text-center py-5 mt-10">
+    © 2026 HomeWare Store | Perabotan Rumah Tangga
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+
+function searchProduct(){
+
+    let keyword = document.getElementById("search").value.toLowerCase();
+
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(function(product){
+
+        let name = product.querySelector(".product-name").textContent.toLowerCase();
+
+        if(name.includes(keyword)){
+
+            product.style.display = "block";
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+<!-- Footer -->
+<footer class="bg-pink-500 text-white mt-16">
+
+    <div class="max-w-6xl mx-auto px-6 py-10">
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Tentang -->
+            <div>
+
+                <h2 class="text-2xl font-bold mb-3">
+                    🏠 HomeWare Store
+                </h2>
+
+                <p class="text-pink-100">
+                    Menyediakan berbagai peralatan rumah tangga berkualitas dengan harga terbaik untuk membuat rumah Anda lebih nyaman.
+                </p>
+
+            </div>
+
+            <!-- Kontak -->
+            <div>
+
+                <h2 class="text-xl font-bold mb-3">
+                    Hubungi Kami
+                </h2>
+
+                <p>📍 Bandung, Indonesia</p>
+                <p>📞 0812-3456-7890</p>
+                <p>📧 homewarestore@gmail.com</p>
+
+            </div>
+
+            <!-- Sosial Media -->
+            <div>
+
+                <h2 class="text-xl font-bold mb-3">
+                    Ikuti Kami
+                </h2>
+
+                <div class="flex gap-4 text-2xl">
+
+                    <a href="https://instagram.com"
+                    target="_blank"
+                    class="hover:text-yellow-300 transition">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="https://tiktok.com"
+                    target="_blank"
+                    class="hover:text-yellow-300 transition">
+
+                        <i class="fa-brands fa-tiktok"></i>
+
+                    </a>
+
+                    <a href="https://facebook.com"
+                    target="_blank"
+                    class="hover:text-yellow-300 transition">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Garis -->
+        <hr class="my-8 border-pink-300">
+
+        <!-- Copyright -->
+        <p class="text-center text-pink-100">
+            © 2026 HomeWare Store. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+</body>
+</html>
