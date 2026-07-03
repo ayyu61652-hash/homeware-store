@@ -1,0 +1,191 @@
+/* ===================================
+   HOMEWARE STORE
+   STYLE.CSS
+=================================== */
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', Arial, sans-serif;
+    background:#eaf8ff;
+    color:#334155;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#7dd3fc;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#f8fafc;
+}
+
+/* ================= BANNER ================= */
+
+section h2{
+    letter-spacing:1px;
+}
+
+/* ================= CARD ================= */
+
+.bg-white{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    border:1px solid #dbeafe;
+
+    transition:.4s;
+
+    overflow:hidden;
+
+}
+
+.bg-white:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(125,211,252,.45);
+
+}
+
+/* ================= GAMBAR ================= */
+
+img{
+
+    transition:.4s;
+
+}
+
+img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ================= JUDUL PRODUK ================= */
+
+h3{
+
+    color:#699bdd;
+
+    font-size:18px;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+/* ================= HARGA ================= */
+
+.text-sky-600{
+
+    color:#0284c7 !important;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+/* ================= BUTTON ================= */
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    background:#38bdf8;
+
+    color:white;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#0ea5e9;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(56,189,248,.35);
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background:#6c9af0;
+
+    color:rgb(173, 224, 233);
+
+    padding:25px;
+
+    margin-top:60px;
+
+}
+
+footer p{
+
+    font-size:15px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    nav{
+
+        display:none;
+
+    }
+
+    h1{
+
+        font-size:26px;
+
+    }
+
+    section h2{
+
+        font-size:30px;
+
+    }
+
+}
