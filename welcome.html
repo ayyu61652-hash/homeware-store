@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Selamat Datang | HomeWare Store</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body class="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 flex items-center justify-center h-screen">
+
+<div class="bg-white shadow-2xl rounded-3xl p-10 text-center max-w-xl w-full">
+
+    <!-- Logo -->
+    <div class="text-7xl mb-5 animate-bounce">
+        🏠
+    </div>
+
+    <!-- Judul -->
+    <h1 class="text-5xl font-bold text-pink-600">
+        Selamat Datang
+    </h1>
+
+    <p class="text-xl text-gray-500 mt-2">
+        di
+    </p>
+
+    <h2 class="text-4xl font-bold text-pink-700 mt-2">
+        HomeWare Store
+    </h2>
+
+    <p class="mt-5 text-gray-600 text-lg">
+        ✨ Menyediakan berbagai peralatan rumah tangga berkualitas,
+        estetik, dan harga terjangkau.
+    </p>
+
+    <!-- Kontak -->
+    <div class="mt-8 space-y-3 text-gray-700 text-lg">
+
+        <p>
+            <i class="fa-solid fa-location-dot text-pink-500"></i>
+            Bandung, Indonesia
+        </p>
+
+        <p>
+            <i class="fa-solid fa-phone text-pink-500"></i>
+            0812-3456-7890
+        </p>
+
+        <p>
+            <i class="fa-solid fa-envelope text-pink-500"></i>
+            homewarestore@gmail.com
+        </p>
+
+    </div>
+
+    <!-- Sosial Media -->
+    <div class="flex justify-center gap-8 mt-8 text-4xl">
+
+        <a href="https://instagram.com"
+        target="_blank"
+        class="text-pink-500 hover:scale-125 duration-300">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://tiktok.com"
+        target="_blank"
+        class="text-black hover:scale-125 duration-300">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a href="https://facebook.com"
+        target="_blank"
+        class="text-blue-600 hover:scale-125 duration-300">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="https://wa.me/6281234567890"
+        target="_blank"
+        class="text-green-500 hover:scale-125 duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+
+    <!-- Loading -->
+    <div class="mt-10">
+
+        <div class="w-full bg-pink-200 rounded-full h-3 overflow-hidden">
+
+            <div id="loading"
+            class="bg-pink-500 h-3 rounded-full w-0"></div>
+
+        </div>
+
+        <p class="mt-4 text-gray-500">
+            Memasuki HomeWare Store...
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+let bar = document.getElementById("loading");
+
+let width = 0;
+
+let interval = setInterval(function(){
+
+    width += 2;
+
+    bar.style.width = width + "%";
+
+    if(width >= 100){
+
+        clearInterval(interval);
+
+    }
+
+},60);
+
+setTimeout(function(){
+
+    window.location.href = "index.html";
+
+},3000);
+
+</script>
+
+</body>
+</html>
